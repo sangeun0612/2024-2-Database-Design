@@ -1,0 +1,239 @@
+/* 전체 대화 내용을 감싸는 frame */
+.chat-frame {
+  border: 2px solid black; /* 검은색 테두리 */
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 컨텐츠 시작 부분에 정렬 */
+  min-height: 94vh; 
+  position: relative; /* 상단에 고정되는 요소 처리 */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px; /* 일반 flow로 동작하게 */
+}
+
+.bot-info {
+  display: flex;
+  align-items: center;
+}
+
+.bot-header-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.bot-header-name {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* 둥근 사각형 테두리로 감싼 기본 메시지 */
+.basic-message {
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+  padding: 12px 80px;
+  border: 1px solid gray; /* 회색 테두리 */
+  border-radius: 50px; /* 둥근 사각형 */
+  margin: 5px auto; /* 중앙 정렬 및 간격 줄이기 */
+  margin-bottom: 10px;
+  max-width: 80%; /* 텍스트 너비에 맞춰 크기 조정 */
+}
+
+/* 날짜 */
+.date {
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+  padding: 12px 25px; /* 좌우 공백 넓히기 */
+  border: 1px solid gray;
+  border-radius: 50px; /* 둥근 사각형 */
+  margin-top: 5px ; /* 위쪽 간격 줄이기 */
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto; /* 중앙 정렬을 위한 auto 설정 */
+  max-width: fit-content; /* 텍스트 길이에 맞춰 크기 조정 */
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 495px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-right: 10px;
+  overflow-y: auto;
+}
+
+/* 스크롤바 스타일 커스터마이징 */
+.chat-container::-webkit-scrollbar {
+  width: 10px; /* 스크롤바 너비 */
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 스크롤바 트랙 배경 */
+  border-radius: 10px; /* 둥근 모서리 */
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: #888; /* 스크롤바 색상 */
+  border-radius: 10px; /* 둥근 모서리 */
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 마우스 오버 시 색상 변경 */
+}
+
+.user-message-container {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  margin: 5px 0;
+}
+
+.user-message-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* 우측 정렬 */
+  margin-bottom: 5px;
+}
+
+.user-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+.user-name {
+  font-size: 14px;
+  color: gray;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #0084ff;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  max-width: 80%; /* 최대 너비를 80%로 설정 */
+  text-align: left;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+}
+
+.pass-message {
+  background-color: #83e088;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+  min-width: 140px; /* 최소 너비 설정 */
+}
+
+.insufficient-message {
+  background-color: #FF9800;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+  min-width: 150px; /* 최소 너비 설정 */
+}
+
+.full-damage-message {
+  background-color: #F44336;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+  min-width: 160px; /* 최소 너비 설정 */
+}
+
+.gpt-message-container {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 5px 0;
+}
+
+.gpt-message-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.bot-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.bot-name {
+  font-size: 14px;
+  color: gray;
+}
+
+.gpt-message {
+  background-color: #e5e5ea;
+  color: black;
+  padding: 10px;
+  border-radius: 15px;
+  max-width: 60%;
+  text-align: left;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+}
+
+.transcription-message {
+  background-color: #4faaff;
+  color: white;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+}
+
+.chat-summary-message {
+  background-color: #fffacd;
+  color: #cd853f;
+  font-weight: 580;
+  white-space: normal; /* 자동 줄바꿈 허용 */
+  overflow-wrap: normal; /* 단어 단위 줄바꿈 방지 */
+  word-break: keep-all; /* 단어 전체가 말풍선을 넘어갈 때 줄바꿈 */
+}
+
+.dropdown-container {
+  position: absolute; /* 절대 위치 고정 */
+  top: 10px; /* 상단에서 10px 떨어짐 */
+  right: 10px; /* 우측에서 10px 떨어짐 */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 드롭다운 간 간격 */
+}
+
+.dropdown-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dropdown-row {
+  display: flex; /* 라벨과 드롭다운을 한 줄에 배치 */
+  align-items: center;
+  justify-content: flex-end; /* 각 행의 레이블과 드롭다운이 한 줄에 배치되고 오른쪽 정렬됨 */
+  gap: 10px; /* 레이블과 드롭다운 사이의 간격 */
+}
+
+.dropdown-container select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-width: 180px; /* 최소 너비 설정 */
+}
